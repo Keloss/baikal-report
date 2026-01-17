@@ -1,0 +1,20 @@
+body {
+    background: #f1f1f1;
+    /* фон страницы */
+}
+
+.page {
+    max-width: 900px;
+    /* ширина страницы */
+    margin: 40px auto;
+    /* центрирование */
+    background: #fff;
+    /* белый фон */
+    border: 1px solid #d1d1d1;
+    /* рамка */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* легкая тень */
+    padding: 30px 40px;
+    /* поля, как в Word */
+    border-radius: 6px;
+}

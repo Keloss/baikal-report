@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Отчет календарей</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="container">
+            <div class="d-flex flex-column align-items-center justify-content-center min-vh-75">
+
+                <button id="btn" type="button" class="btn btn-primary mb-4 mt-5">Сформировать отчет</button>
+
+                <div class="d-flex gap-3 mb-4">
+                    <div>
+                        <label class="form-label">Начало:</label>
+                        <input id="start" type="date" class="form-control" />
+                    </div>
+                    <div>
+                        <label class="form-label">Конец:</label>
+                        <input id="end" type="date" class="form-control" />
+                    </div>
+                </div>
+
+                <div id="result" class="w-100"></div>
+            </div>
+        </div>
+    </div>
+    <script src="/main.js"></script>
+</body>
+
+</html>
