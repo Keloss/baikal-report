@@ -1,18 +1,18 @@
 document.getElementById("btn").addEventListener("click", async () => {
-    const start = document.getElementById("start").value;
-    const end = document.getElementById("end").value;
+  const start = document.getElementById("start").value;
+  const end = document.getElementById("end").value;
 
-    if (!start || !end) {
-        alert("Выберите start и end");
-        return;
-    }
+  if (!start || !end) {
+    alert("Выберите Начавло и конец периода");
+    return;
+  }
 
-    const url = `/report?start=${start}&end=${end}`;
+  const url = `/report?start=${start}&end=${end}`;
 
-    const res = await fetch(url);
-    const data = await res.json();
+  const res = await fetch(url);
+  const data = await res.json();
 
-    let html = `
+  let html = `
       <div class="table-responsive">
       <table class="table table-bordered table-striped">
         <thead class="table-dark">
@@ -26,8 +26,8 @@ document.getElementById("btn").addEventListener("click", async () => {
         <tbody>
     `;
 
-    for (const ev of data.events) {
-        html += `
+  for (const ev of data.events) {
+    html += `
           <tr>
             <td>${ev.calendar}</td>
             <td>${ev.summary}</td>
@@ -35,13 +35,13 @@ document.getElementById("btn").addEventListener("click", async () => {
             <td>${ev.end}</td>
           </tr>
         `;
-    }
+  }
 
-    html += `
+  html += `
         </tbody>
       </table>
       </div>
     `;
 
-    document.getElementById("result").innerHTML = html;
+  document.getElementById("result").innerHTML = html;
 });
