@@ -1,10 +1,14 @@
 import mysql.connector
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def get_connection():
     return mysql.connector.connect(
-        host="192.168.0.111",
-        user="baikal",
-        password="StrongPassword123!",
-        database="baikal",
-        auth_plugin="mysql_native_password"
+        host=os.getenv('DB_HOST'),
+        user=os.getenv('DB_USER'),
+        password=os.getenv('DB_PASSWORD'),
+        database=os.getenv('DB_NAME'),
+        auth_plugin=os.getenv('DB_AUTH_PLUGIN')
     )

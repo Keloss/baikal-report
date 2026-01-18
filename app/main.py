@@ -8,6 +8,7 @@ app = FastAPI(title="Baikal Report Service")
 
 tz = pytz.timezone("Asia/Tomsk")  
 
+
 @app.get("/report")
 def report(
     start: str = Query(..., description="YYYY-MM-DD"),
