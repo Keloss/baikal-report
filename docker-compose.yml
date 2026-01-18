@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: baikal-mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: baikal
+      MYSQL_USER: baikal
+      MYSQL_PASSWORD: StrongPassword123!
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "3306:3306"
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./baikal_dump.sql:/docker-entrypoint-initdb.d/baikal_dump.sql
+
+  web:
+    build: .
+    container_name: baikal-report
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+volumes:
+  mysql_data:
