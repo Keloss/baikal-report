@@ -3,7 +3,7 @@ document.getElementById("btn").addEventListener("click", async () => {
   const end = document.getElementById("end").value;
 
   if (!start || !end) {
-    alert("Выберите Начавло и конец периода");
+    alert("Выберите Начало и конец периода");
     return;
   }
 
