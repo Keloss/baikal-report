@@ -3,6 +3,7 @@ from datetime import datetime
 import pytz
 from app.events import get_all_events
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 
 app = FastAPI(title="Baikal Report Service")
 
@@ -20,4 +21,8 @@ def report(
     events = get_all_events(start_dt, end_dt)
     return {"count": len(events), "events": events}
 
-app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
+app.mount("/static", StaticFiles(directory="frontend", html=True), name="static")
+
+@app.get("/")
+def index():
+    return FileResponse("frontend/index.html")
